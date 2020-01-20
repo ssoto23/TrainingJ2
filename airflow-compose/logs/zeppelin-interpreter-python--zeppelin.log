@@ -1,0 +1,46 @@
+ INFO [2020-01-19 00:10:22,178] ({main} RemoteInterpreterServer.java[main]:261) - URL:jar:file:/zeppelin/lib/interpreter/zeppelin-interpreter-0.8.1.jar!/org/apache/zeppelin/interpreter/remote/RemoteInterpreterServer.class
+ INFO [2020-01-19 00:10:22,235] ({main} RemoteInterpreterServer.java[<init>]:162) - Launching ThriftServer at 172.18.0.4:34985
+ INFO [2020-01-19 00:10:22,242] ({main} RemoteInterpreterServer.java[<init>]:166) - Starting remote interpreter server on port 34985
+ INFO [2020-01-19 00:10:22,244] ({Thread-0} RemoteInterpreterServer.java[run]:203) - Starting remote interpreter server on port 34985
+ INFO [2020-01-19 00:10:23,260] ({Thread-1} RemoteInterpreterUtils.java[registerInterpreter]:165) - callbackHost: 172.18.0.4, callbackPort: 36995, callbackInfo: CallbackInfo(host:172.18.0.4, port:34985)
+ INFO [2020-01-19 00:10:23,392] ({pool-1-thread-1} RemoteInterpreterServer.java[createInterpreter]:311) - Instantiate interpreter org.apache.zeppelin.python.PythonInterpreter
+ INFO [2020-01-19 00:10:23,408] ({pool-1-thread-1} RemoteInterpreterServer.java[createInterpreter]:311) - Instantiate interpreter org.apache.zeppelin.python.IPythonInterpreter
+ INFO [2020-01-19 00:10:23,410] ({pool-1-thread-1} RemoteInterpreterServer.java[createInterpreter]:311) - Instantiate interpreter org.apache.zeppelin.python.PythonInterpreterPandasSql
+ INFO [2020-01-19 00:10:23,414] ({pool-1-thread-1} RemoteInterpreterServer.java[createInterpreter]:311) - Instantiate interpreter org.apache.zeppelin.python.PythonCondaInterpreter
+ INFO [2020-01-19 00:10:23,416] ({pool-1-thread-1} RemoteInterpreterServer.java[createInterpreter]:311) - Instantiate interpreter org.apache.zeppelin.python.PythonDockerInterpreter
+ WARN [2020-01-19 00:10:23,477] ({pool-1-thread-1} ZeppelinConfiguration.java[create]:117) - Failed to load configuration, proceeding with a default
+ INFO [2020-01-19 00:10:23,504] ({pool-1-thread-1} ZeppelinConfiguration.java[create]:129) - Server Host: 0.0.0.0
+ INFO [2020-01-19 00:10:23,504] ({pool-1-thread-1} ZeppelinConfiguration.java[create]:131) - Server Port: 8090
+ INFO [2020-01-19 00:10:23,505] ({pool-1-thread-1} ZeppelinConfiguration.java[create]:135) - Context Path: /
+ INFO [2020-01-19 00:10:23,507] ({pool-1-thread-1} ZeppelinConfiguration.java[create]:136) - Zeppelin Version: 0.8.1
+ INFO [2020-01-19 00:10:23,507] ({pool-1-thread-1} SchedulerFactory.java[<init>]:59) - Scheduler Thread Pool Size: 100
+ INFO [2020-01-19 00:10:23,514] ({pool-2-thread-2} SchedulerFactory.java[jobStarted]:114) - Job 20200119-000328_1025815385 started by scheduler org.apache.zeppelin.python.PythonInterpreter678916848
+ INFO [2020-01-19 00:10:23,984] ({pool-2-thread-2} IPythonInterpreter.java[checkIPythonPrerequisite]:198) - IPython prerequisite is met
+ INFO [2020-01-19 00:10:23,990] ({pool-2-thread-2} IPythonInterpreter.java[open]:135) - Python Exec: python
+ INFO [2020-01-19 00:10:24,361] ({pool-2-thread-2} IPythonInterpreter.java[checkIPythonPrerequisite]:198) - IPython prerequisite is met
+ INFO [2020-01-19 00:10:24,366] ({pool-2-thread-2} IPythonInterpreter.java[open]:146) - Launching IPython Kernel at port: 40907
+ INFO [2020-01-19 00:10:24,366] ({pool-2-thread-2} IPythonInterpreter.java[open]:147) - Launching JVM Gateway at port: 40871
+ INFO [2020-01-19 00:10:24,530] ({pool-2-thread-2} IPythonInterpreter.java[setupIPythonEnv]:319) - PYTHONPATH:/zeppelin/interpreter/python/py4j-0.9.2/src
+ INFO [2020-01-19 00:10:24,887] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:24,988] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,090] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,191] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,292] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,394] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,494] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,595] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,696] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:297) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,858] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:293) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:25,963] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:293) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:26,066] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:293) - Wait for IPython Kernel to be started
+ INFO [2020-01-19 00:10:26,176] ({pool-2-thread-2} IPythonInterpreter.java[launchIPythonKernel]:290) - IPython Kernel is Running
+ INFO [2020-01-19 00:10:26,176] ({pool-2-thread-2} Py4JUtils.java[createGatewayServer]:44) - Launching GatewayServer at 127.0.0.1:40871
+ INFO [2020-01-19 00:10:26,510] ({pool-2-thread-2} PythonInterpreter.java[open]:235) - IPython is available, Use IPythonInterpreter to replace PythonInterpreter
+ INFO [2020-01-19 00:10:26,577] ({pool-2-thread-2} SchedulerFactory.java[jobFinished]:120) - Job 20200119-000328_1025815385 finished by scheduler org.apache.zeppelin.python.PythonInterpreter678916848
+ INFO [2020-01-19 00:20:24,393] ({pool-1-thread-1} RemoteInterpreterServer.java[shutdown]:209) - Shutting down...
+ WARN [2020-01-19 00:20:24,845] ({Exec Default Executor} IPythonInterpreter.java[onProcessFailed]:398) - Exception happens in Python Process
+org.apache.commons.exec.ExecuteException: Process exited with an error: 143 (Exit value: 143)
+	at org.apache.commons.exec.DefaultExecutor.executeInternal(DefaultExecutor.java:404)
+	at org.apache.commons.exec.DefaultExecutor.access$200(DefaultExecutor.java:48)
+	at org.apache.commons.exec.DefaultExecutor$1.run(DefaultExecutor.java:200)
+	at java.lang.Thread.run(Thread.java:748)
