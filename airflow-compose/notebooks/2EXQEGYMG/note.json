@@ -1,0 +1,420 @@
+{
+  "paragraphs": [
+    {
+      "text": "%dep\n//z.reset()\nz.addRepo(\"Central24o\").url(\"https://repo1.maven.org/maven2\")\nz.load(\"com.amazonaws:aws-java-sdk:1.7.4\").exclude(\" com.fasterxml:*\")\nz.load(\"org.apache.hadoop:hadoop-aws:2.7.0\").exclude(\" com.fasterxml:*\")\n//z.load(\"jets3t:jets3t:0.9.4\").exclude(\" com.fasterxml:*\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 19:47:18.949",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@561ffab1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579633011056_-72772847",
+      "id": "20200121-185651_2144996466",
+      "dateCreated": "2020-01-21 18:56:51.056",
+      "dateStarted": "2020-01-22 19:47:18.994",
+      "dateFinished": "2020-01-22 19:47:30.747",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "\r\n%spark.pyspark\r\n\r\nimport pyspark\r\nfrom pyspark.sql import SparkSession\r\n\r\n\r\nconfig \u003d pyspark.SparkConf()\r\nconfig.setMaster(\"spark://spark-master:7077\")\r\nspark \u003d SparkSession.builder \\\r\n            .appName(\"J2SchemaTeest\") \\\r\n            .config(\"fs.s3a.access.key\",\"AKIA4CC66JB65LVFCDR2\") \\\r\n            .config(\"fs.s3a.secret.key\",\"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\") \\\r\n            .getOrCreate()\r\n            \r\n            ",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:36:07.933",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579631520487_1647101872",
+      "id": "20200121-183200_1639671760",
+      "dateCreated": "2020-01-21 18:32:00.488",
+      "dateStarted": "2020-01-22 20:36:07.972",
+      "dateFinished": "2020-01-22 20:36:08.037",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndf \u003d spark.read.json(\"s3a://j2training/sample.json\")\n#df \u003d spark.readStream.json(\"s3a://j2training/data\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:36:09.738",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579631556269_189961766",
+      "id": "20200121-183236_977276561",
+      "dateCreated": "2020-01-21 18:32:36.269",
+      "dateStarted": "2020-01-22 20:36:09.760",
+      "dateFinished": "2020-01-22 20:36:12.062",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom bs4 import BeautifulSoup\nfrom datetime import datetime\nfrom pyspark.sql.functions import udf\n\nsourceExtractor \u003d udf(lambda source: BeautifulSoup(source).string.encode(\"utf8\"))",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:36:12.397",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579714888235_-1166710382",
+      "id": "20200122-174128_1762695518",
+      "dateCreated": "2020-01-22 17:41:28.236",
+      "dateStarted": "2020-01-22 20:36:12.420",
+      "dateFinished": "2020-01-22 20:36:12.469",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndf2 \u003d df.select(sourceExtractor(\"source\").alias(\"source\"),\"created_at\",\"lang\").groupBy(\"source\",\"created_at\",\"lang\").count()",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:17:42.869",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579714361458_1119114388",
+      "id": "20200122-173241_479707786",
+      "dateCreated": "2020-01-22 17:32:41.458",
+      "dateStarted": "2020-01-22 20:17:42.895",
+      "dateFinished": "2020-01-22 20:17:43.036",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\ndf2.toJSON()",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:30:16.218",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "MapPartitionsRDD[114] at toJavaRDD at NativeMethodAccessorImpl.java:0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579724173800_-1587629187",
+      "id": "20200122-201613_89995087",
+      "dateCreated": "2020-01-22 20:16:13.800",
+      "dateStarted": "2020-01-22 20:30:16.243",
+      "dateFinished": "2020-01-22 20:30:16.419",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom datetime import datetime\nfrom pyspark.sql.functions import lit\n\ndataDf \u003d spark.readStream.json(\"s3a://j2training/data\",df.schema).select(sourceExtractor(\"source\").alias(\"source\"),\"created_at\",\"lang\").groupBy(\"source\",\"created_at\",\"lang\").count().withColumn(\"timestamp\", lit(datetime.now())).withWatermark(\"timestamp\", \"1 minutes\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 21:17:21.698",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579632889697_2116010947",
+      "id": "20200121-185449_2110594246",
+      "dateCreated": "2020-01-21 18:54:49.697",
+      "dateStarted": "2020-01-22 21:17:21.719",
+      "dateFinished": "2020-01-22 21:17:23.004",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nfrom datetime import datetime\nimport json\n\nclass DateTimeEncoder(json.JSONEncoder):\n    def default(self, o):\n        if isinstance(o, datetime):\n            return o.isoformat()\n\n        return json.JSONEncoder.default(self, o)",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 22:07:33.231",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579724949258_326461629",
+      "id": "20200122-202909_568994244",
+      "dateCreated": "2020-01-22 20:29:09.258",
+      "dateStarted": "2020-01-22 22:07:33.257",
+      "dateFinished": "2020-01-22 22:07:33.311",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n\nimport time\n\nimport uuid\nimport json\n\nrowToJson \u003d lambda x: x\n\nfrom datetime import date, datetime\n\ndef json_serial(obj):\n    \"\"\"JSON serializer for objects not serializable by default json code\"\"\"\n\n    if isinstance(obj, (datetime, date)):\n        return obj.isoformat()\n    raise TypeError (\"Type %s not serializable\" % type(obj))\n        \ndef mapJsonDF(rows):\n    print rows\n    row_list \u003d list(rows)\n    jsonList \u003d [json.dumps(row.asDict(),cls\u003dDateTimeEncoder) for row in row_list]\n    return jsonList\n\ndef sendToS3(rdd):\n    import boto3\n    s3 \u003d boto3.resource(\n        \u0027s3\u0027,\n        region_name\u003d\u0027us-east-1\u0027,\n        aws_access_key_id\u003d\"AKIA4CC66JB65LVFCDR2\",\n        aws_secret_access_key\u003d\"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\"\n        )\n    row_list \u003d list(rdd)\n    year \u003d datetime.today().year\n    month \u003d datetime.today().month\n    day \u003d datetime.today().day\n    hour \u003d datetime.today().hour\n    minutes \u003d datetime.today().minute\n    print \u0027data/{0}/{1}/{2}/{3}/tweets-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))\n    data \u003d str.join(\u0027\\n\u0027, map(rowToJson,row_list))\n    bites \u003d bytes(data.encode(\"utf-8\"))\n    s3.Object(\u0027j2training\u0027, \u0027data/processed/{0}/{1}/{2}/{3}/tweets-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))).put(Body\u003dbites) \n    \ndef foreach_batch_function2(df, epoch_id):\n    dfJson \u003d df\n    from datetime import datetime\n\n    year \u003d datetime.today().year\n    month \u003d datetime.today().month\n    day \u003d datetime.today().day\n    hour \u003d datetime.today().hour\n    minutes \u003d datetime.today().minute\n    print(\"dfis \" + str(dfJson.rdd))\n    print \"count is \" + str(dfJson.rdd.count())\n    def printRdd(x):\n        print x\n    dfJson.rdd.mapPartitions(mapJsonDF).foreachPartition(sendToS3)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 22:11:31.462",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579669861048_-818468490",
+      "id": "20200122-051101_1395511314",
+      "dateCreated": "2020-01-22 05:11:01.048",
+      "dateStarted": "2020-01-22 22:11:31.533",
+      "dateFinished": "2020-01-22 22:11:31.627",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nimport time\n#.option(\"checkpointLocation\", \"s3a://j2training/checkpoint/\") \\\nquery \u003d dataDf.repartition(2).writeStream.trigger(processingTime\u003d\"15 seconds\") \\\n            .foreachBatch(foreach_batch_function2) \\\n            .outputMode(\"complete\") \\\n            .start()\n\nterminate \u003d False\nprint query\n\nwhile not terminate:\n    time.sleep(10)\n    print \"looping\"\n    print query.status[\"isDataAvailable\"]\n    terminate \u003d  query.status[\"isDataAvailable\"] \u003d\u003d False\n    \n    \nquery.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 22:11:34.320",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u003cpyspark.sql.streaming.StreamingQuery object at 0x7f9849179e90\u003e\ndfis MapPartitionsRDD[950] at javaToPython at \u003cunknown\u003e:0\nlooping\nTrue\ncount is 637\nlooping\nFalse\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579722275187_979573224",
+      "id": "20200122-194435_1903717418",
+      "dateCreated": "2020-01-22 19:44:35.187",
+      "dateStarted": "2020-01-22 22:11:34.349",
+      "dateFinished": "2020-01-22 22:11:54.554",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\nquery.stop()",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 22:00:19.533",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579722163875_1611156936",
+      "id": "20200122-194243_52509483",
+      "dateCreated": "2020-01-22 19:42:43.876",
+      "dateStarted": "2020-01-22 22:00:19.562",
+      "dateFinished": "2020-01-22 22:00:19.628",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-22 20:47:17.416",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1579726037415_-945051733",
+      "id": "20200122-204717_728795562",
+      "dateCreated": "2020-01-22 20:47:17.415",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "ExportToSchema",
+  "id": "2EXQEGYMG",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
