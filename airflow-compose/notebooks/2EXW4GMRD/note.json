@@ -1,0 +1,146 @@
+{
+  "paragraphs": [
+    {
+      "text": "%redshift\n\nCREATE TABLE IF NOT EXISTS users\n(\n  id bigint NOT NULL IDENTITY(1001,1),\n  id_str VARCHAR UNIQUE,\n  friends_count bigint,\n  favourites_count bigint,\n  description VARCHAR(max),\n  created_at VARCHAR,\n  name VARCHAR,\n  screen_name VARCHAR(max) ,\n  statuses_count bigint,\n  location VARCHAR DISTKEY,\n  primary key(id)  \n)\ninterleaved sortkey(location,friends_count)",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-23 22:42:07.638",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579802591818_-94293316",
+      "id": "20200123-180311_910136811",
+      "dateCreated": "2020-01-23 18:03:11.819",
+      "dateStarted": "2020-01-23 22:42:07.658",
+      "dateFinished": "2020-01-23 22:42:07.893",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\n\n\nCREATE TABLE IF NOT EXISTS tweets \n(\n  language VARCHAR NOT NULL,\n  retweet_count bigint,\n  text VARCHAR(max) NOT NULL,\n  quote_count bigint,\n  timestamp_ms timestamp NOT NULL,\n  created_at VARCHAR NOT NULL,\n  source VARCHAR NOT NULL,\n  user_id bigint NOT NULL DISTKEY,\n  id bigint NOT NULL IDENTITY(2001,1),\n  primary key(id),\n  foreign key(user_id) references users(id_str)\n  )\n  interleaved sortkey(language,user_id,source)\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-23 23:50:48.128",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579802611078_1731309676",
+      "id": "20200123-180331_1322636595",
+      "dateCreated": "2020-01-23 18:03:31.078",
+      "dateStarted": "2020-01-23 23:50:48.150",
+      "dateFinished": "2020-01-23 23:50:48.387",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\ndrop table public.tweets",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-23 23:50:45.935",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579803088412_74473357",
+      "id": "20200123-181128_1626916519",
+      "dateCreated": "2020-01-23 18:11:28.412",
+      "dateStarted": "2020-01-23 23:50:45.961",
+      "dateFinished": "2020-01-23 23:50:46.200",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-23 22:41:59.723",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1579819319722_1959348215",
+      "id": "20200123-224159_773421954",
+      "dateCreated": "2020-01-23 22:41:59.722",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PrepareDb",
+  "id": "2EXW4GMRD",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "redshift:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

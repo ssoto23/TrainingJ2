@@ -1788,6 +1788,30 @@
       "groovy",
       "neo4j",
       "sap"
+    ],
+    "2EXW4GMRD": [
+      "redshift",
+      "spark",
+      "md",
+      "angular",
+      "sh",
+      "livy",
+      "alluxio",
+      "file",
+      "flink",
+      "python",
+      "ignite",
+      "lens",
+      "cassandra",
+      "kylin",
+      "elasticsearch",
+      "jdbc",
+      "hbase",
+      "bigquery",
+      "pig",
+      "groovy",
+      "neo4j",
+      "sap"
     ]
   },
   "interpreterRepositories": [
