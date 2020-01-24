@@ -82,12 +82,11 @@ services:
 
   postgres:
     image: postgres:9.6
+    hostname: postgresql
     environment:
         - POSTGRES_USER=airflow
         - POSTGRES_PASSWORD=airflow
         - POSTGRES_DB=airflow
-    volumes:
-        - ./postgresql:/var/lib/postgresql/data
     logging:
         options:
             max-size: 10m
@@ -145,7 +144,19 @@ services:
     ports:
       - "18082:8081"
     environment:
-      - "SPARK_MASTER=spark://spark-master:7077"      
+      - "SPARK_MASTER=spark://spark-master:7077"   
+
+  spark-worker-2:
+    build:
+      context: spark-worker/
+    container_name: spark-worker-2
+    hostname: spark-worker-2
+    depends_on:
+      - spark-master
+    ports:
+      - "18083:8081"
+    environment:
+      - "SPARK_MASTER=spark://spark-master:7077"        
 
   zeppelin:
     container_name: zeppelin

@@ -234,7 +234,7 @@
       "properties": {
         "default.url": {
           "name": "default.url",
-          "value": "jdbc:postgresql://localhost:5432/",
+          "value": "jdbc:postgresql://postgres:5432/airflow",
           "type": "string"
         },
         "default.driver": {
@@ -254,7 +254,7 @@
         },
         "default.password": {
           "name": "default.password",
-          "value": "",
+          "value": "airflow",
           "type": "password"
         },
         "default.completer.schemaFilters": {
@@ -269,7 +269,7 @@
         },
         "default.user": {
           "name": "default.user",
-          "value": "gpadmin",
+          "value": "airflow",
           "type": "string"
         },
         "zeppelin.jdbc.concurrent.max_connection": {
@@ -323,7 +323,7 @@
           "type": "number"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "sql",
@@ -1021,7 +1021,7 @@
           "type": "number"
         }
       },
-      "status": "READY",
+      "status": "DOWNLOADING_DEPENDENCIES",
       "interpreterGroup": [
         {
           "name": "sql",
@@ -1806,6 +1806,30 @@
       "kylin",
       "elasticsearch",
       "jdbc",
+      "hbase",
+      "bigquery",
+      "pig",
+      "groovy",
+      "neo4j",
+      "sap"
+    ],
+    "2EXBGWKU1": [
+      "spark",
+      "md",
+      "angular",
+      "sh",
+      "livy",
+      "alluxio",
+      "file",
+      "flink",
+      "python",
+      "ignite",
+      "lens",
+      "cassandra",
+      "kylin",
+      "elasticsearch",
+      "jdbc",
+      "redshift",
       "hbase",
       "bigquery",
       "pig",

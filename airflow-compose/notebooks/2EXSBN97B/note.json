@@ -107,7 +107,7 @@
     {
       "text": "select * from tweets",
       "user": "anonymous",
-      "dateUpdated": "2020-01-23 23:51:48.857",
+      "dateUpdated": "2020-01-24 00:43:33.968",
       "config": {
         "colWidth": 12.0,
         "fontSize": 9.0,
@@ -120,7 +120,112 @@
               "optionOpen": false,
               "setting": {
                 "table": {
-                  "tableGridState": {},
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "language",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "retweet_count",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "text",
+                        "visible": true,
+                        "width": 356.0,
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "quote_count",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "timestamp_ms",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "created_at",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "source",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "user_id",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "id",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
                   "tableColumnTypeState": {
                     "names": {
                       "language": "string",
@@ -183,18 +288,94 @@
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%redshift\n",
+      "text": "%jdbc\nCREATE TABLE IF NOT EXISTS processed_files (id SERIAL PRIMARY KEY, file_name text,created_at TIMESTAMP)",
       "user": "anonymous",
-      "dateUpdated": "2020-01-23 22:40:51.621",
+      "dateUpdated": "2020-01-24 01:37:38.494",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 0"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579819251620_-1059212519",
+      "id": "20200123-224051_1974878081",
+      "dateCreated": "2020-01-23 22:40:51.620",
+      "dateStarted": "2020-01-24 01:37:38.547",
+      "dateFinished": "2020-01-24 01:37:38.577",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%jdbc\n--INSERT INTO processed_files(file_name,created_at) values (\u0027TestFile\u0027,CURRENT_TIMESTAMP)\n\ndelete from processed_files;",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 01:43:23.236",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Query executed successfully. Affected rows : 1"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579827748597_-1554617644",
+      "id": "20200124-010228_191393954",
+      "dateCreated": "2020-01-24 01:02:28.597",
+      "dateStarted": "2020-01-24 01:43:23.285",
+      "dateFinished": "2020-01-24 01:43:23.311",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%jdbc\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 01:40:57.883",
       "config": {},
       "settings": {
         "params": {},
         "forms": {}
       },
       "apps": [],
-      "jobName": "paragraph_1579819251620_-1059212519",
-      "id": "20200123-224051_1974878081",
-      "dateCreated": "2020-01-23 22:40:51.620",
+      "jobName": "paragraph_1579830057881_1947825089",
+      "id": "20200124-014057_1779374702",
+      "dateCreated": "2020-01-24 01:40:57.881",
       "status": "READY",
       "progressUpdateIntervalMs": 500
     }
@@ -205,7 +386,7 @@
   "noteForms": {},
   "angularObjects": {
     "redshift:shared_process": [],
-    "spark:shared_process": []
+    "jdbc:shared_process": []
   },
   "config": {
     "isZeppelinNotebookCronEnable": false
