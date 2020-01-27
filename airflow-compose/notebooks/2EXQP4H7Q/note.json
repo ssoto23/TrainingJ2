@@ -1,0 +1,258 @@
+{
+  "paragraphs": [
+    {
+      "text": "%python\nfrom collections import namedtuple\nFiles \u003d namedtuple(\"Files\",[\"id\",\"file_name\",\"created_at\",\"output_dir\"])\ndef getFiles():\n    import psycopg2\n    s3_files \u003d []\n    with psycopg2.connect(database\u003d\"airflow\", user\u003d\"airflow\", password\u003d\"airflow\", host\u003d\"postgres\", port\u003d\"5432\") as con:\n        cursor \u003d con.cursor()\n        cursor.execute(\"\"\"select *  from processed_files\"\"\")\n        row_files \u003d cursor.fetchall() \n        s3_files \u003d [Files(files[0],files[1],files[2],files[3]) for files in row_files ]\n    \n    return s3_files",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 21:48:49.627",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579881447545_-1009360444",
+      "id": "20200124-155727_2143493513",
+      "dateCreated": "2020-01-24 15:57:27.545",
+      "dateStarted": "2020-01-26 20:32:24.185",
+      "dateFinished": "2020-01-26 20:32:24.216",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\ndef getContents(file_list):\n    file_content \u003d \\\n    \"\"\"\n    {  \n        \"entries\":[  \n        \"\"\" +\"\" . join([\u0027\u0027\u0027\n            {{  \n                \"url\":\"s3://j2training/{0}\",\n                \"mandatory\":false\n            }},\n        \u0027\u0027\u0027.format(file.file_name) for file in file_list]) \\\n    + \\\n    \"\"\"   {  \n         \"url\":\"s3://j2training/bucket.json\",\n         \"mandatory\":false\n          }\n        ]    \n    }\n    \"\"\"\n    return file_content",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-25 23:08:19.355",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579882008506_-876636963",
+      "id": "20200124-160648_829544926",
+      "dateCreated": "2020-01-24 16:06:48.506",
+      "dateStarted": "2020-01-26 20:32:24.286",
+      "dateFinished": "2020-01-26 20:32:24.310",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nimport boto3\ndef writeToS3(bites,outpuyt_dir):\n    \n    s3 \u003d boto3.resource(\n        \u0027s3\u0027,\n        region_name\u003d\u0027us-east-1\u0027,\n        aws_access_key_id\u003d\"\",\n        aws_secret_access_key\u003d\"\"\n        )\n    return s3.Object(\u0027j2training\u0027,\"redshift/%s/files_to_load.manifest\" % (outpuyt_dir) ).put(Body\u003dbites) \n    \n    \ndef deleteFiles():\n    import psycopg2\n    s3_files \u003d []\n    with psycopg2.connect(database\u003d\"airflow\", user\u003d\"airflow\", password\u003d\"airflow\", host\u003d\"postgres\", port\u003d\"5432\") as con:\n        cursor \u003d con.cursor()\n        cursor.execute(\"\"\"delete from processed_files\"\"\")\n        con.commit()",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-27 11:39:44.610",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "jobName": "paragraph_1579883735413_424581274",
+      "id": "20200124-163535_238950591",
+      "dateCreated": "2020-01-24 16:35:35.413",
+      "dateStarted": "2020-01-27 11:39:44.692",
+      "dateFinished": "2020-01-27 11:39:56.251",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nfrom pydash import _\nfiles_dict \u003d _.group_by(getFiles(),\"output_dir\")\nfiles_dict",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 21:48:49.986",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\u0027data/processed/tweets\u0027: [Files(id\u003d93, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-c5e7da76-c2e3-4f70-aa49-bd1a52e5aa41.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 27, 507403), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d94, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-4973c31f-5525-41d1-a4dc-ab2e4b37d376.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 28, 178026), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d97, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-9ef6899e-3b33-4f5c-9b7c-254dbd51898a.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 857316), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d98, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-09a73387-b0f2-49b2-ace3-972d565e00f6.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 30, 727714), output_dir\u003d\u0027data/processed/tweets\u0027)],\n \u0027data/processed/users\u0027: [Files(id\u003d91, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-18-cf888dd9-cd7b-4544-b650-a7f32252e03f.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 18, 18, 141582), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d92, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-18-3c40e650-6a30-4426-a26b-91ced0f0d201.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 18, 20, 657850), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d95, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-31-393ce9ca-1d62-4161-81cb-8bf816565832.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 500972), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d96, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-31-758db84f-03bd-44ea-a5ea-02f14683745e.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 592054), output_dir\u003d\u0027data/processed/users\u0027)]}"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579887505586_1092986500",
+      "id": "20200124-173825_1282018366",
+      "dateCreated": "2020-01-24 17:38:25.586",
+      "dateStarted": "2020-01-26 20:32:24.486",
+      "dateFinished": "2020-01-26 20:32:24.520",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n[writeToS3(getContents(files_dict[outpuyt_dir]).encode(\"utf-8\"),outpuyt_dir) for outpuyt_dir in files_dict]",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 21:48:50.110",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "[{u\u0027ETag\u0027: \u0027\"bb561105c07ff024776578d9d3675477\"\u0027,\n  \u0027ResponseMetadata\u0027: {\u0027HTTPHeaders\u0027: {\u0027content-length\u0027: \u00270\u0027,\n    \u0027date\u0027: \u0027Sun, 26 Jan 2020 20:32:26 GMT\u0027,\n    \u0027etag\u0027: \u0027\"bb561105c07ff024776578d9d3675477\"\u0027,\n    \u0027server\u0027: \u0027AmazonS3\u0027,\n    \u0027x-amz-id-2\u0027: \u0027sILgfWERw+pbrAPQEl02RVsyLFNIIyrbrTTq4/poDbi8zf0CVcxT8b4EpIUDOabg0xqSAMYu3gQ\u003d\u0027,\n    \u0027x-amz-request-id\u0027: \u0027881E9E9DF07F330F\u0027},\n   \u0027HTTPStatusCode\u0027: 200,\n   \u0027HostId\u0027: \u0027sILgfWERw+pbrAPQEl02RVsyLFNIIyrbrTTq4/poDbi8zf0CVcxT8b4EpIUDOabg0xqSAMYu3gQ\u003d\u0027,\n   \u0027RequestId\u0027: \u0027881E9E9DF07F330F\u0027,\n   \u0027RetryAttempts\u0027: 0}},\n {u\u0027ETag\u0027: \u0027\"affd13d160f8248522dfd8df497ac750\"\u0027,\n  \u0027ResponseMetadata\u0027: {\u0027HTTPHeaders\u0027: {\u0027content-length\u0027: \u00270\u0027,\n    \u0027date\u0027: \u0027Sun, 26 Jan 2020 20:32:26 GMT\u0027,\n    \u0027etag\u0027: \u0027\"affd13d160f8248522dfd8df497ac750\"\u0027,\n    \u0027server\u0027: \u0027AmazonS3\u0027,\n    \u0027x-amz-id-2\u0027: \u00272hTABgQNVTCzPcNcCC8Sc26FKZst+PtxQQJBEKid4RT4UsbMaILJWkngHSIgx8peKf394sxkhoM\u003d\u0027,\n    \u0027x-amz-request-id\u0027: \u0027CA2DD02C6055773E\u0027},\n   \u0027HTTPStatusCode\u0027: 200,\n   \u0027HostId\u0027: \u00272hTABgQNVTCzPcNcCC8Sc26FKZst+PtxQQJBEKid4RT4UsbMaILJWkngHSIgx8peKf394sxkhoM\u003d\u0027,\n   \u0027RequestId\u0027: \u0027CA2DD02C6055773E\u0027,\n   \u0027RetryAttempts\u0027: 0}}]"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579884182395_-2007251602",
+      "id": "20200124-164302_1871736641",
+      "dateCreated": "2020-01-24 16:43:02.395",
+      "dateStarted": "2020-01-26 20:32:24.589",
+      "dateFinished": "2020-01-26 20:32:25.907",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\nfiles_dict",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 21:48:51.439",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "{\u0027data/processed/tweets\u0027: [Files(id\u003d93, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-c5e7da76-c2e3-4f70-aa49-bd1a52e5aa41.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 27, 507403), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d94, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-4973c31f-5525-41d1-a4dc-ab2e4b37d376.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 28, 178026), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d97, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-9ef6899e-3b33-4f5c-9b7c-254dbd51898a.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 857316), output_dir\u003d\u0027data/processed/tweets\u0027),\n  Files(id\u003d98, file_name\u003d\u0027data/processed/tweets/2020/1/26/20/tweets-31-09a73387-b0f2-49b2-ace3-972d565e00f6.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 30, 727714), output_dir\u003d\u0027data/processed/tweets\u0027)],\n \u0027data/processed/users\u0027: [Files(id\u003d91, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-18-cf888dd9-cd7b-4544-b650-a7f32252e03f.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 18, 18, 141582), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d92, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-18-3c40e650-6a30-4426-a26b-91ced0f0d201.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 18, 20, 657850), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d95, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-31-393ce9ca-1d62-4161-81cb-8bf816565832.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 500972), output_dir\u003d\u0027data/processed/users\u0027),\n  Files(id\u003d96, file_name\u003d\u0027data/processed/users/2020/1/26/20/tweets-31-758db84f-03bd-44ea-a5ea-02f14683745e.json\u0027, created_at\u003ddatetime.datetime(2020, 1, 26, 20, 31, 29, 592054), output_dir\u003d\u0027data/processed/users\u0027)]}"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579890100367_236911632",
+      "id": "20200124-182140_1800478400",
+      "dateCreated": "2020-01-24 18:21:40.367",
+      "dateStarted": "2020-01-26 20:32:26.002",
+      "dateFinished": "2020-01-26 20:32:26.068",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%python\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 21:48:51.559",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1579890153527_1040022588",
+      "id": "20200124-182233_1557419319",
+      "dateCreated": "2020-01-24 18:22:33.527",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "PrepareFilesToLoad",
+  "id": "2EXQP4H7Q",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "python:shared_process": [],
+    "redshift:shared_process": [],
+    "jdbc:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

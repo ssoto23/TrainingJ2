@@ -1,3 +1,0 @@
- INFO [2020-01-24 01:03:02,760] ({pool-2-thread-68} SchedulerFactory.java[jobStarted]:114) - Job 20200123-181128_1626916519 started by scheduler org.apache.zeppelin.jdbc.JDBCInterpreter1994713455
- INFO [2020-01-24 01:03:03,659] ({pool-2-thread-68} SchedulerFactory.java[jobFinished]:120) - Job 20200123-181128_1626916519 finished by scheduler org.apache.zeppelin.jdbc.JDBCInterpreter1994713455
- INFO [2020-01-24 01:03:33,994] ({pool-1-thread-3} RemoteInterpreterServer.java[shutdown]:209) - Shutting down...

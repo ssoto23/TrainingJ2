@@ -1,0 +1,322 @@
+{
+  "paragraphs": [
+    {
+      "text": "%redshift\nselect * from (select count(language) as lcount,source,language from tweets group by source,language order by language asc ) where lcount \u003e 10",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-26 19:46:30.941",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 318.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "lcount",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {
+                          "priority": 0.0,
+                          "direction": "desc"
+                        },
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "source",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "language",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1.0,
+                      "paginationPageSize": 250.0
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "lcount": "string",
+                      "source": "string",
+                      "language": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "language",
+                  "index": 2.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [
+                {
+                  "name": "source",
+                  "index": 1.0,
+                  "aggr": "sum"
+                }
+              ],
+              "values": [
+                {
+                  "name": "lcount",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "lcount\tsource\tlanguage\n31\tTwitter for Android\tar\n30\tTwitter for iPhone\tar\n35\tTwitter for iPhone\tca\n30\tTwitter for Android\tca\n11\tTwitter Web Client\tde\n42\tTwitter for Android\tde\n60\tTwitter Web App\tde\n25\tTwitter for iPhone\tde\n16\tBuffer\ten\n11487\tTwitter for iPhone\ten\n179\tTwitter Web Client\ten\n16\tMobile Web (M2)\ten\n2677\tTwitter Web App\ten\n15\tPaper.li\ten\n9201\tTwitter for Android\ten\n36\tWordPress.com\ten\n584\tTwitter for iPad\ten\n16\tTweetbot for iÎS\ten\n21\tSocialFlow\ten\n15\tFlamingo for Android\ten\n16\tIFTTT\ten\n20\tnews2tw\ten\n51\tTweetDeck\ten\n11\tBrand Whistle\ten\n35\tdlvr.it\ten\n20\tNewsfilter.io\ten\n1723\tTwitter for Android\tes\n789\tTwitter for iPhone\tes\n15\tWordPress.com\tes\n389\tTwitter Web App\tes\n12\tdlvr.it\tes\n42\tTwitter for iPad\tes\n20\tTweetDeck\tes\n25\tTwitter Web Client\tes\n647\tTwitter for Android\tfr\n1213\tTwitter for iPhone\tfr\n155\tTwitter Web App\tfr\n20\tTwitter for iPad\tfr\n15\tTwitter Web Client\tfr\n26\tTwitter for Android\thi\n6834\tTwitter for Android\tin\n602\tTwitter Web App\tin\n3444\tTwitter for iPhone\tin\n21\tdlvr.it\tin\n27\tTwitter for iPad\tin\n25\tTwitter Web App\tit\n58\tTwitter for iPhone\tit\n100\tTwitter for Android\tit\n128\tTwitter for Android\tja\n21\tTwitter for iPad\tja\n194\tTwitter for iPhone\tja\n79\tTwitter Web App\tja\n27\tTwitter for Android\tko\n16\tTwitter for iPhone\tko\n11\tTwitter for Android\tlt\n20\tTwitter for Android\tnl\n15\tTwitter Web App\tnl\n324\tTwitter for Android\tpt\n71\tTwitter Web App\tpt\n110\tTwitter for iPhone\tpt\n11\tTwitter for iPad\tpt\n16\tTwitter for iPhone\tro\n15\tTwitter for Android\tru\n32\tTwitter for iPhone\tru\n11\tTwitter for Android\tsv\n535\tTwitter for Android\tth\n48\tTwitter Web App\tth\n47\tTwitter for iPad\tth\n606\tTwitter for iPhone\tth\n147\tTwitter for iPhone\ttl\n199\tTwitter for Android\ttl\n53\tTwitter Web App\ttl\n25\tTwitter Web App\ttr\n192\tTwitter for Android\ttr\n82\tTwitter for iPhone\ttr\n327\tTwitter for Android\tund\n227\tTwitter for iPhone\tund\n137\tTwitter Web App\tund\n15\tTwitter for iPad\tund\n56\tTwitter for Android\tzh\n34\tTwitter Web App\tzh\n65\tTwitter for iPhone\tzh\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1580013679159_-825040385",
+      "id": "20200126-044119_575483820",
+      "dateCreated": "2020-01-26 04:41:19.159",
+      "dateStarted": "2020-01-26 19:46:18.178",
+      "dateFinished": "2020-01-26 19:46:24.631",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\nselect count(*) from tweets",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-26 19:46:54.956",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count\n45400\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1580013684187_-2086783923",
+      "id": "20200126-044124_1785820648",
+      "dateCreated": "2020-01-26 04:41:24.189",
+      "dateStarted": "2020-01-26 19:46:54.204",
+      "dateFinished": "2020-01-26 19:46:54.578",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\nselect count(*) from users",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-26 19:47:20.253",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "count\n6555\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1580068010347_-717170979",
+      "id": "20200126-194650_634872325",
+      "dateCreated": "2020-01-26 19:46:50.347",
+      "dateStarted": "2020-01-26 19:47:17.703",
+      "dateFinished": "2020-01-26 19:47:19.922",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%redshift\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-26 19:47:17.605",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1580068037605_1497550823",
+      "id": "20200126-194717_1653249158",
+      "dateCreated": "2020-01-26 19:47:17.605",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Queries",
+  "id": "2F1BPEKNX",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "python:shared_process": [],
+    "redshift:shared_process": [],
+    "jdbc:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}

@@ -1,50 +1,9 @@
 {
   "paragraphs": [
     {
-      "text": "%spark.dep\r\n//z.reset()\r\nz.addRepo(\"Central2o\").url(\"https://repo1.maven.org/maven2\")\r\nz.load(\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0\")",
+      "text": "\r\n%spark.pyspark\r\n\r\nimport pyspark\r\nfrom pyspark.sql import SparkSession\r\n\r\n\r\nconfig \u003d pyspark.SparkConf()\r\nconfig.setMaster(\u0027spark://spark-master:7077\u0027)\r\nspark \u003d SparkSession.builder.appName(\"J2Test\") \\\r\n            .config(\"forward_spark_s3_credentials\",True) \\\r\n            .config(\"fs.s3a.access.key\",\"\") \\\r\n            .config(\"fs.s3a.secret.key\",\"\") \\\r\n            .getOrCreate()\r\n",
       "user": "anonymous",
-      "dateUpdated": "2020-01-22 17:11:07.097",
-      "config": {
-        "editorSetting": {
-          "language": "scala",
-          "editOnDblClick": false,
-          "completionKey": "TAB",
-          "completionSupport": true
-        },
-        "colWidth": 12.0,
-        "editorMode": "ace/mode/scala",
-        "fontSize": 9.0,
-        "results": {},
-        "enabled": true,
-        "editorHide": false,
-        "tableHide": false
-      },
-      "settings": {
-        "params": {},
-        "forms": {}
-      },
-      "results": {
-        "code": "SUCCESS",
-        "msg": [
-          {
-            "type": "TEXT",
-            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@4a78c32d\n"
-          }
-        ]
-      },
-      "apps": [],
-      "jobName": "paragraph_1579577795832_-347909414",
-      "id": "20200120-222802_2095718758",
-      "dateCreated": "2020-01-21 03:36:35.832",
-      "dateStarted": "2020-01-22 17:11:07.204",
-      "dateFinished": "2020-01-22 17:11:33.374",
-      "status": "FINISHED",
-      "progressUpdateIntervalMs": 500
-    },
-    {
-      "text": "\r\n%spark.pyspark\r\n\r\nimport pyspark\r\nfrom pyspark.sql import SparkSession\r\n\r\n\r\nconfig \u003d pyspark.SparkConf()\r\nconfig.setMaster(\u0027spark://spark-master:7077\u0027)\r\nspark \u003d SparkSession.builder.appName(\"J2Test\").getOrCreate()\r\n",
-      "user": "anonymous",
-      "dateUpdated": "2020-01-22 17:13:37.029",
+      "dateUpdated": "2020-01-27 11:39:07.408",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -58,7 +17,7 @@
         "results": {},
         "enabled": true,
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -72,15 +31,15 @@
       "jobName": "paragraph_1579577795841_291656611",
       "id": "20200118-195314_1536993808",
       "dateCreated": "2020-01-21 03:36:35.841",
-      "dateStarted": "2020-01-22 17:13:37.111",
-      "dateFinished": "2020-01-22 17:13:53.677",
+      "dateStarted": "2020-01-26 20:33:13.732",
+      "dateFinished": "2020-01-26 20:33:31.774",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\nimport uuid\n\ndf \u003d spark \\\n  .readStream \\\n  .format(\"kafka\") \\\n  .option(\"kafka.bootstrap.servers\", \"broker:19092,broker2:19093\") \\\n  .option(\"auto.offset.reset\", \"latest\") \\\n  .option(\"subscribe\", \"my_topic\") \\\n  .load()\n  \ndf \u003d df.selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")",
+      "text": "%spark.pyspark\nimport uuid\n\ndf \u003d spark \\\n  .readStream \\\n  .format(\"kafka\") \\\n  .option(\"kafka.bootstrap.servers\", \"broker:19092,broker2:19093,broker3:19094\") \\\n  .option(\"auto.offset.reset\", \"latest\") \\\n  .option(\"subscribe\", \"my_topic\") \\\n  .load()\n  \ndf \u003d df.selectExpr(\"CAST(key AS STRING)\", \"CAST(value AS STRING)\")",
       "user": "anonymous",
-      "dateUpdated": "2020-01-22 17:14:44.142",
+      "dateUpdated": "2020-01-24 20:32:09.256",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -108,15 +67,15 @@
       "jobName": "paragraph_1579577795842_834544210",
       "id": "20200120-223154_1310614256",
       "dateCreated": "2020-01-21 03:36:35.842",
-      "dateStarted": "2020-01-22 17:14:44.191",
-      "dateFinished": "2020-01-22 17:14:46.368",
+      "dateStarted": "2020-01-26 20:33:31.822",
+      "dateFinished": "2020-01-26 20:33:33.522",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "\n%spark.pyspark\nimport time\nimport boto3\nimport uuid\n\ns3 \u003d boto3.resource(\n        \u0027s3\u0027,\n        region_name\u003d\u0027us-east-1\u0027,\n        aws_access_key_id\u003d\"AKIA4CC66JB65LVFCDR2\",\n        aws_secret_access_key\u003d\"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\"\n        )\ndef foreach_batch_function2(df, epoch_id):\n    from datetime import datetime\n\n    year \u003d datetime.today().year\n    month \u003d datetime.today().month\n    day \u003d datetime.today().day\n    hour \u003d datetime.today().hour\n    minutes \u003d datetime.today().minute\n    dataCOllected \u003d df.collect()\n    print \u0027data/{0}/{1}/{2}/{3}/raw-tweet-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))\n    data \u003d str.join(\u0027\\n\u0027, map(lambda x: x.value,dataCOllected))\n    bites \u003d bytes(data.encode(\"utf-8\"))\n    s3.Object(\u0027j2training\u0027, \u0027data/{0}/{1}/{2}/{3}/raw-tweet-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))).put(Body\u003dbites)",
+      "text": "\n%spark.pyspark\nimport time\nimport boto3\nimport uuid\n\ns3 \u003d boto3.resource(\n        \u0027s3\u0027,\n        region_name\u003d\u0027us-east-1\u0027,\n        aws_access_key_id\u003d\"\",\n        aws_secret_access_key\u003d\"\"\n        )\ndef foreach_batch_function2(df, epoch_id):\n    from datetime import datetime\n\n    year \u003d datetime.today().year\n    month \u003d datetime.today().month\n    day \u003d datetime.today().day\n    hour \u003d datetime.today().hour\n    minutes \u003d datetime.today().minute\n    dataCOllected \u003d df.collect()\n    print \u0027data/raw/{0}/{1}/{2}/{3}/raw-tweet-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))\n    data \u003d str.join(\u0027\\n\u0027, map(lambda x: x.value,dataCOllected))\n    bites \u003d bytes(data.encode(\"utf-8\"))\n    s3.Object(\u0027j2training\u0027, \u0027data/raw/{0}/{1}/{2}/{3}/raw-tweet-{4}-{5}.json\u0027.format(year,month,day,hour,minutes,str(uuid.uuid4()))).put(Body\u003dbites)",
       "user": "anonymous",
-      "dateUpdated": "2020-01-21 15:09:01.506",
+      "dateUpdated": "2020-01-27 11:39:15.702",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -144,15 +103,15 @@
       "jobName": "paragraph_1579577795843_365930132",
       "id": "20200120-235347_729350698",
       "dateCreated": "2020-01-21 03:36:35.843",
-      "dateStarted": "2020-01-21 03:51:46.667",
-      "dateFinished": "2020-01-21 03:51:46.878",
+      "dateStarted": "2020-01-26 20:33:33.543",
+      "dateFinished": "2020-01-26 20:33:34.359",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     },
     {
-      "text": "%spark.pyspark\nimport time\n\nquery \u003d df.writeStream.foreachBatch(foreach_batch_function2).start()   \n\nprint(\"Starting...\")\n\ntime.sleep(60)\n\nquery.stop()",
+      "text": "%spark.pyspark\nimport time\n\nquery \u003d df.writeStream.option(\"checkpointLocation\", \"s3a://j2training/spark/checkpoint/raw\").foreachBatch(foreach_batch_function2).start()   \n\nprint(\"Starting...\")\n\ntime.sleep(300)\n\nquery.stop()",
       "user": "anonymous",
-      "dateUpdated": "2020-01-21 15:08:37.979",
+      "dateUpdated": "2020-01-25 19:43:25.183",
       "config": {
         "editorSetting": {
           "language": "python",
@@ -166,7 +125,7 @@
         "results": {},
         "enabled": true,
         "editorHide": false,
-        "tableHide": true
+        "tableHide": false
       },
       "settings": {
         "params": {},
@@ -177,7 +136,7 @@
         "msg": [
           {
             "type": "TEXT",
-            "data": "Starting...\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-51-02490568-20fc-41b6-9db6-11bdec8945a5.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-51-47f4f268-8d2b-4acd-993c-755084984b07.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-51-2209e577-f669-46fc-ba9d-dc983cf90137.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-51-2d4f39f0-f424-4205-8213-82b3f5201c8e.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-26d180d3-171b-4932-bcc6-31743ff32e8d.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-6359cc3c-ac1a-411f-8fb7-881ea468d9af.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-a68f5741-9660-48d6-839f-d91c8c65578b.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-b8f230f2-8f4b-4dbb-95da-513d398270f3.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-9ddf287b-5f4c-4e49-beb8-674f38b62ac7.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-5045a6f1-2bfc-47a3-a28d-d6ecf21d128e.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-1bb63e13-057d-4a92-b921-02737fa373a0.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-a3d1084d-1d21-4305-bc9d-913084e6e9c0.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-427a46c3-3e7a-490e-901b-58d87ccb2719.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-2ed5a4f5-6663-4bda-a4b1-45c4fd06eb88.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-6fd5afaf-7fe9-4c72-ac26-ac487b43c99a.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-5c30905e-599c-47e4-a693-b062ee4e2103.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-9994a99c-4d49-4245-9943-be9c147cb721.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-782be21d-d08f-40de-a7ab-a6539d90d492.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-b06f1f6b-e5b6-4ba5-96fd-bf447f3a03b8.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-ce780647-4ab4-433a-b581-b40e3086e5af.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-63706be4-562c-4745-adb6-6a202dd600d1.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-834dbccb-aba1-46fb-b81f-60b188650558.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-27e6aa08-824d-4d68-b2d8-345d51173aa3.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-934b0a86-3298-42a4-a701-3d6a824edefc.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-ca7fffa6-251a-49e6-a2ed-2e44681cea9f.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-078909dd-44a1-48cb-b816-bcb6e907b694.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-666af37a-85ac-4d93-92d7-bafec4f76919.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-efe9e53b-4c41-4b29-a217-8891eaef5ba2.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-2bba8fa0-9262-499c-98c2-1c596e8c6992.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-bc408f8d-e095-40b6-8580-d4433e9b658d.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-e863ac97-4ac5-4d04-a912-a953b3e9643c.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-e0509750-57b4-424e-8dd6-be1296419d1a.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-946bc4cf-25f9-4b32-bf7a-00e94c2e500e.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-84d3c6ea-79d7-4d0c-8cbd-d49aa8cf309f.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-27cb88f2-2056-4ff3-9b0d-f51a5c8e1ba4.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-7934345c-e30e-4452-abd7-ed973e0780f1.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-500d12b5-e074-495e-883b-98a47e29e5a3.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-540e5ce4-e241-4e8d-923d-7991fff4579c.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-bb31cb92-f4c9-49d4-83bd-f3102a8c447d.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-933109db-5c34-4e73-a4da-a4ca98916392.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-86c93a20-c072-4e65-88fa-40da58005172.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-3ff22e45-77b1-4426-ab6f-3eec89826f2c.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-59958b8d-cf87-42a2-9b9d-b12b07986dd9.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-48da388d-5c3a-4510-b9db-922bfc69dc53.json\ncollecting\n\u003ctype \u0027list\u0027\u003e\ndata/2020/1/21/3/raw-tweet-52-76a252c1-9495-44e9-a3ab-31a11e25b2cf.json\n"
+            "data": "Starting...\ndata/raw/2020/1/26/20/raw-tweet-33-3e2f9965-ea48-4215-bacc-e8074993751e.json\ndata/raw/2020/1/26/20/raw-tweet-34-31d8372f-18a0-48b8-90db-11b12a85db4e.json\ndata/raw/2020/1/26/20/raw-tweet-34-d8002fc2-6158-42be-9281-8a52e888426d.json\ndata/raw/2020/1/26/20/raw-tweet-34-6d0b47ab-3d8f-46cb-b754-eda4b38f3d00.json\ndata/raw/2020/1/26/20/raw-tweet-35-0deed64d-13b8-497b-97aa-844db17a80eb.json\ndata/raw/2020/1/26/20/raw-tweet-35-64494d85-f2b2-4ca0-a8e4-f0d5b0cd6272.json\ndata/raw/2020/1/26/20/raw-tweet-35-6e82bbe5-fee6-461d-b7d5-5e966d8e480e.json\n"
           }
         ]
       },
@@ -185,8 +144,36 @@
       "jobName": "paragraph_1579577795846_-1991408432",
       "id": "20200120-223243_1284417855",
       "dateCreated": "2020-01-21 03:36:35.846",
-      "dateStarted": "2020-01-21 03:51:50.219",
-      "dateFinished": "2020-01-21 03:52:51.207",
+      "dateStarted": "2020-01-26 20:33:34.434",
+      "dateFinished": "2020-01-26 20:38:38.210",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark.pyspark\n",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-24 20:42:17.777",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1579894795298_1012650116",
+      "id": "20200124-193955_1025700734",
+      "dateCreated": "2020-01-24 19:39:55.298",
       "status": "FINISHED",
       "progressUpdateIntervalMs": 500
     }

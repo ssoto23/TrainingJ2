@@ -9,7 +9,7 @@ RUN wget https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoo
 RUN mkdir /usr/local/local-repo && chmod -R a+rw /usr/local/local-repo
 RUN mkdir /zeppelin/local-repo && chmod -R a+rw /zeppelin/local-repo
 RUN apt-get update && apt-get install nano
-RUN pip install --upgrade pip && pip install boto3 && pip install beautifulsoup4 
+RUN pip install --upgrade pip && pip install boto3 && pip install beautifulsoup4 && pip install pydash
 RUN apt-get install postgresql -y
 RUN apt-get install python-dev -y && apt-get install libpq-dev -y && pip install psycopg2
 RUN wget https://s3.amazonaws.com/redshift-downloads/drivers/jdbc/1.2.37.1061/RedshiftJDBC42-no-awssdk-1.2.37.1061.jar --progress=bar:force && \

@@ -1,0 +1,55 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark.dep\r\n//z.reset()\r\nz.addRepo(\"Central2o\").url(\"https://repo1.maven.org/maven2\")\r\nz.load(\"org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0\")\r\nz.load(\"com.amazonaws:aws-java-sdk:1.7.4\").exclude(\" com.fasterxml:*\")\r\nz.load(\"org.apache.hadoop:hadoop-aws:2.7.0\").exclude(\" com.fasterxml:*\")\r\nz.load(\"com.databricks:spark-redshift_2.11:3.0.0-preview1\").exclude(\" com.fasterxml:*\")",
+      "user": "anonymous",
+      "dateUpdated": "2020-01-25 19:45:56.769",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "res0: org.apache.zeppelin.dep.Dependency \u003d org.apache.zeppelin.dep.Dependency@fdd4a1e\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1579981541371_1869599490",
+      "id": "20200125-194541_1321635043",
+      "dateCreated": "2020-01-25 19:45:41.371",
+      "dateStarted": "2020-01-26 20:32:58.601",
+      "dateFinished": "2020-01-26 20:33:10.208",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "Set_spark_deps",
+  "id": "2EZ5YG7UK",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "python:shared_process": [],
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
